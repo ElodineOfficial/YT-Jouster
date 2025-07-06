@@ -1,0 +1,29 @@
+[
+  {
+    "user": "MEMEGAZER",
+    "likes": 5,
+    "comments": 13,
+    "replies": 8,
+    "hearts": 20,
+    "chars": 3039,
+    "score": 224
+  },
+  {
+    "user": "VZVEGETA",
+    "likes": 17,
+    "comments": 2,
+    "replies": 1,
+    "hearts": 0,
+    "chars": 1982,
+    "score": 30
+  },
+  {
+    "user": "LIONKIMBRO",
+    "likes": 0,
+    "comments": 1,
+    "replies": 1,
+    "hearts": 0,
+    "chars": 2091,
+    "score": 10
+  }
+]

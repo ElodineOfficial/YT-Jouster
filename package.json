@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "dotenv": "^16.6.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "googleapis": "^150.0.1",
+    "puppeteer": "^24.11.0",
+    "puppeteer-core": "^24.11.0",
+    "serve-handler": "^6.1.6"
+  },
+  "name": "jouster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube Comment Joust</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <style>
+    html,body { margin:0; height:100%; background:#222;
+                display:flex; justify-content:center; align-items:center;
+                font-family:monospace; }
+    #wrapper  { position:relative; width:900px; height:600px; }
+    canvas    { position:absolute; inset:0; image-rendering:pixelated; }
+    #hud      { position:absolute; top:0; left:0; width:100%; padding:4px 6px;
+                background:rgba(0,0,0,.45); color:#fff; pointer-events:none; }
+  </style>
+</head>
+<body>
+
+  <!-- single canvas the game code looks for -->
+  <div id="wrapper">
+    <canvas id="game" width="900" height="600"></canvas>
+    <div   id="hud">Loading…</div>
+  </div>
+
+  <!-- (optional) physics lib -->
+  <script src="https://cdn.jsdelivr.net/npm/planck-js@0.3.0/dist/planck.min.js"></script>
+
+  <!-- boot script -->
+  <script type="module">
+    /* joust.js registers window.startJoust – we just run it */
+    import './joust.js';
+
+    async function init() {
+      const hud = document.getElementById('hud');
+
+      try {
+        const res     = await fetch('./players.json');
+        const players = await res.json();
+
+        hud.textContent = '';
+        const winner = await window.startJoust(players);   // <- canvas id “game” is hard-coded inside joust.js
+
+        hud.textContent = ``;
+        window.dispatchEvent(new CustomEvent('matchFinished',
+          { detail: { winner } }));
+      } catch (err) {
+        console.error(err);
+        hud.textContent = `⚠️ ${err.message}`;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
